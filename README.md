@@ -20,6 +20,13 @@ npm run build
 npm run start
 ```
 
+## Todo
+
+- [ ] Optimize search
+- [ ] Add campaign
+- [ ] Add code snippet generator
+- [ ] Add multi user support
+
 ## Author
 
 👤 **Filippo Finke**
