@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to newsletter 👋</h1>
 
-> A simple Self-hosted email subscriptions list.
+> A simple self-hosted email subscriptions list.
 
 ## Install
 
