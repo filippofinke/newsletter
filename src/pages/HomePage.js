@@ -106,7 +106,7 @@ const HomePage = ({ onSelect }) => {
 				onEnter={createForm}
 				onClick={createForm}
 			/>
-			{forms && (
+			{forms ? (
 				<div className="forms">
 					{forms.map((form) => {
 						return (
@@ -135,6 +135,8 @@ const HomePage = ({ onSelect }) => {
 						);
 					})}
 				</div>
+			) : (
+				<h4 style={{ textAlign: "center" }}>Please wait, loading...</h4>
 			)}
 		</div>
 	);

@@ -120,7 +120,7 @@ const FormPage = ({ form, onClose }) => {
 					);
 				})}
 			</div>
-			{emails && (
+			{emails ? (
 				<div className="emails">
 					{emails.length > 0 ? (
 						<Input
@@ -162,6 +162,8 @@ const FormPage = ({ form, onClose }) => {
 							);
 						})}
 				</div>
+			) : (
+				<h4 style={{ textAlign: "center" }}>Please wait, loading...</h4>
 			)}
 		</div>
 	);
