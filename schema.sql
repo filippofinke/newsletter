@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS emails (
 	country CHAR(2), 
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(form, email),
-    FOREIGN KEY (form) REFERENCES forms(id)
+    FOREIGN KEY (form) REFERENCES forms(id) ON DELETE CASCADE
 );
 
 CREATE TRIGGER IF NOT EXISTS on_email_insert 

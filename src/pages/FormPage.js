@@ -14,6 +14,7 @@ import Header from "./../components/Header/Header";
 import Badge from "./../components/Badge/Badge";
 import Row from "./../components/Row/Row";
 import Button from "./../components/Button/Button";
+import Input from "./../components/Input/Input";
 
 const FormPage = ({ form, onClose }) => {
 	let [emails, setEmails] = useState(null);
@@ -121,21 +122,25 @@ const FormPage = ({ form, onClose }) => {
 			</div>
 			{emails && (
 				<div className="emails">
-					<input
-						type="text"
-						placeholder="Search"
-						value={filter}
-						onChange={({ target }) => {
-							setFilter(target.value.toLowerCase().trim());
-						}}
-					/>
+					{emails.length > 0 ? (
+						<Input
+							type="text"
+							placeholder="Search"
+							value={filter}
+							onChange={({ target }) => {
+								setFilter(target.value.toLowerCase().trim());
+							}}
+						/>
+					) : (
+						<h4 style={{ textAlign: "center" }}>No emails to show</h4>
+					)}
 					{emails
 						.filter(({ email }) => (filter ? email.includes(filter) : true))
 						.map(({ email, country, created_at }) => {
 							return (
 								<LazyLoad key={email} height={50}>
 									<Row>
-										<Badge text={new Date(created_at).toLocaleDateString()} />
+										<Badge text={new Date(created_at).toDateString()} />
 										{country && (
 											<Badge icon={<Flag code={country} />} text={country} />
 										)}

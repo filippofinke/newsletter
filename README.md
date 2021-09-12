@@ -25,6 +25,7 @@ npm run start
 - [ ] Optimize search
 - [ ] Add campaign
 - [ ] Add code snippet generator
+- [ ] Add rate limiter
 - [ ] Add multi user support
 
 ## Author

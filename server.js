@@ -6,7 +6,7 @@ const geoip = require("geoip-lite");
 const fs = require("fs");
 const path = require("path");
 const basicAuth = require("express-basic-auth");
-const rateLimit = require("express-rate-limit");
+const compression = require("compression");
 
 const app = express();
 const db = require("better-sqlite3")("database.sqlite3");
@@ -20,13 +20,8 @@ process.env.USERNAME = process.env.USERNAME || "admin";
 process.env.PASSWORD = process.env.PASSWORD || "1234";
 
 app.use(morgan("common"));
-app.use(
-	rateLimit({
-		windowMs: 60 * 1000, // 1 minute
-		max: 10,
-	})
-);
 app.use(cors());
+app.use(compression());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -92,6 +87,15 @@ app.get("/form/:id", (req, res) => {
 	return res.json(emails);
 });
 
+app.delete("/form", (req, res) => {
+	let form = req.body.id;
+	if (form) {
+		db.prepare("DELETE FROM forms WHERE id = ?").run(form);
+		return res.sendStatus(200);
+	}
+	return res.sendStatus(400);
+});
+
 app.delete("/form/:id", (req, res) => {
 	let form = req.params.id;
 	let email = req.body.email;
@@ -102,7 +106,7 @@ app.delete("/form/:id", (req, res) => {
 		);
 		return res.sendStatus(200);
 	}
-	return res.sendStatus(40);
+	return res.sendStatus(400);
 });
 
 app.listen(process.env.PORT, "0.0.0.0", () => {

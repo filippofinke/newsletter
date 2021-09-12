@@ -4,20 +4,3 @@
 	align-items: center;
 	justify-content: center;
 }
-
-.form-page .emails input {
-	box-sizing: border-box;
-	border-radius: 6px;
-	border: 1px solid #444c56;
-	background-color: #22272e;
-	padding: 10px;
-	margin: 10px 0;
-	width: 100%;
-	font-size: 1em;
-	color: #cdd9e5;
-}
-
-.form-page .emails input:focus {
-	outline: none;
-	border: 1px solid #4184e4;
-}
