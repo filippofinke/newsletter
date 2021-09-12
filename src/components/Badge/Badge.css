@@ -1,0 +1,19 @@
+.badge {
+	padding: 5px;
+	margin-right: 10px;
+	border-radius: 6px;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #fff;
+	text-align: center;
+	background-color: #546377;
+	display: flex;
+	align-items: center;
+}
+
+.badge svg,
+.badge img {
+	margin-right: 3px;
+	width: 1em;
+	height: 1em;
+}

@@ -1,0 +1,20 @@
+button {
+	cursor: pointer;
+	font-size: 23px;
+	line-height: 0;
+	margin: 0 5px;
+	background-color: #373e47;
+	color: #adbac7;
+	border: none;
+	padding: 4px;
+	border-radius: 6px;
+}
+
+button svg {
+	width: 1em;
+	height: 1em;
+}
+
+button:hover {
+	background-color: #444c56;
+}
